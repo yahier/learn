@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/act"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/item_text"
+        android:gravity="center"
+        android:text="天河地区，细心教导计算机基础知识" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        style="@style/item_text"
+        android:gravity="center"
+        android:text="本人性格内外结合,适应能力强，为人诚实，有良好的人际交往能力，具备相关的专业知识和认真。细心、耐心的工作态度及良好的职业道德修养。相信团体精神的我对工作认真负责，总希望能把事情做得更好! 性格开朗，对文字语言和数字敏感，对生活充满希望，对工作充满热情! 能在短期间内适应新环境，有强烈的品质意识;对工作认真负责，上进心强! 懂电脑基本操作，熟练小键盘操作" />
+
+
+
+</LinearLayout>
