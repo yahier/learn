@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/qwe"
+        android:id="@+id/linTvItem"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
@@ -17,38 +17,48 @@
 
 
         <TextView
+
+            android:id="@+id/tvItem1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="首页" />
+            android:text="首页"
+            android:textColor="@color/theme_color" />
 
 
         <TextView
+            android:id="@+id/tvItem2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="发现" />
+            android:text="发现"
+            android:textColor="@color/black" />
 
         <TextView
+            android:id="@+id/tvItem3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="信息" />
+            android:text="信息"
+            android:textColor="@color/black" />
 
         <TextView
+            android:id="@+id/tvItem4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="我的" />
+            android:text="我的"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linTvItem" />
 </RelativeLayout>
