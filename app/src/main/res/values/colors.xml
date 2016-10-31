@@ -9,6 +9,6 @@
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="gray1">#545454</color>
-
-
+    <color name="theme_red">#ff6c6c</color>
+    <color name="theme_bg">#F7F7F7</color>
 </resources>

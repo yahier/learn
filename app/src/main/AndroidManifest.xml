@@ -17,8 +17,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".act.PublishAct" />
-        <activity android:name=".act.DetailAct" />
+        <activity android:name=".act.PublishAct"/>
+        <activity android:name=".act.DetailAct"/>
+        <activity
+            android:name=".act.SearchAct"
+            android:windowSoftInputMode="adjustNothing"/>
     </application>
 
 </manifest>

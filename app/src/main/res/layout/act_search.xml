@@ -4,16 +4,14 @@
               style="@style/act"
               android:orientation="vertical">
 
-
     <EditText
-        android:singleLine="true"
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:hint="输入以发现更多精彩"
         android:imeOptions="actionSearch"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="5dp"
+        android:singleLine="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"
