@@ -1,5 +1,6 @@
 package com.yahier.learn.act;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,14 @@ public class Frament1Home extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         Fragment1Adapter adapter = new Fragment1Adapter(getActivity());
         mRecyclerView.setAdapter(adapter);
+
+        view.findViewById(R.id.imgPublish).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),PublishAct.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
