@@ -1,6 +1,7 @@
 package com.yahier.learn.act;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.yahier.learn.R;
 
@@ -9,11 +10,21 @@ import com.yahier.learn.R;
  * 发布页面
  */
 
-public class DetailAct extends ThemeAct {
+public class DetailAct extends ThemeAct implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_detail);
         setLabel("详情");
+
+        findViewById(R.id.tvChat).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.tvChat:
+                break;
+        }
     }
 }
