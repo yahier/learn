@@ -5,15 +5,21 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.yahier.learn.R;
 import com.yahier.learn.adapter.CommonFragmentPagerAdapter;
+import com.yahier.learn.util.LogUtil;
 import com.yahier.learn.util.ToastUtil;
 
 import java.util.ArrayList;
+
+import static com.yahier.learn.R.string.password;
 
 public class MainActivity extends FragmentActivity {
     ViewPager viewpager;
@@ -30,6 +36,13 @@ public class MainActivity extends FragmentActivity {
         tvMiddle = (TextView) findViewById(R.id.theme_top_banner_middle);
         tvMiddle.setText(labels[0]);
         tvRight = (TextView) findViewById(R.id.theme_top_tv_right);
+        getWindow().getDecorView().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loginHuanxin();
+            }
+        }, 1000);
+
     }
 
 
@@ -128,6 +141,28 @@ public class MainActivity extends FragmentActivity {
         tvRight.setText(value);
         tvRight.setOnClickListener(clickListener);
         tvRight.setVisibility(View.VISIBLE);
+    }
+
+    void loginHuanxin() {
+        EMClient.getInstance().login("yahier", "123456", new EMCallBack() {//回调
+            @Override
+            public void onSuccess() {
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                LogUtil.logE("main", "登录聊天服务器成功！");
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                LogUtil.logE("main", "登录聊天服务器失败！" + message + " " + +code);
+            }
+        });
+
     }
 
 }

@@ -1,5 +1,6 @@
 package com.yahier.learn.act;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class DetailAct extends ThemeAct implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.tvChat:
+                startActivity(new Intent(this, ChatActivity.class).putExtra("userId", "bingo"));
                 break;
         }
     }

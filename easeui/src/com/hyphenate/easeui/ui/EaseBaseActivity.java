@@ -52,7 +52,7 @@ public class EaseBaseActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         // cancel the notification
-        EaseUI.getInstance().getNotifier().reset();
+        //EaseUI.getInstance().getNotifier().reset();//reset方法崩溃了
     }
     
     protected void hideSoftKeyboard() {
