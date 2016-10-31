@@ -11,19 +11,27 @@ import android.widget.TextView;
 
 import com.yahier.learn.R;
 import com.yahier.learn.adapter.CommonFragmentPagerAdapter;
+import com.yahier.learn.util.ToastUtil;
 
 import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity {
     ViewPager viewpager;
+    String[] labels = {"首页", "发现", "信息", "我的"};
+    TextView tvMiddle;
+    TextView tvRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-
+        findViewById(R.id.theme_top_banner_left).setVisibility(View.INVISIBLE);
+        tvMiddle = (TextView) findViewById(R.id.theme_top_banner_middle);
+        tvMiddle.setText(labels[0]);
+        tvRight = (TextView) findViewById(R.id.theme_top_tv_right);
     }
+
 
     void initView() {
         viewpager = (ViewPager) findViewById(R.id.viewpager);
@@ -84,6 +92,28 @@ public class MainActivity extends FragmentActivity {
                     }
                 }
 
+                tvMiddle.setText(labels[position]);
+                switch(position) {
+                    case 0:
+                        tvRight.setVisibility(View.INVISIBLE);
+                        break;
+                    case 1:
+                        setRightTv("附近", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ToastUtil.showToast("点击了附近");
+                            }
+                        });
+                        break;
+                    case 2:
+                        tvRight.setVisibility(View.INVISIBLE);
+                        break;
+                    case 3:
+                        tvRight.setVisibility(View.INVISIBLE);
+                        break;
+
+                }
+
             }
 
             @Override
@@ -93,14 +123,11 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
-    void test() {
-        getWindow().getDecorView().postDelayed(new Runnable() {
-            @Override
-            public void run() {
 
-                Intent intent = new Intent(MainActivity.this, PublishAct.class);
-                startActivity(intent);
-            }
-        }, 2000);
+    void setRightTv(String value, View.OnClickListener clickListener) {
+        tvRight.setText(value);
+        tvRight.setOnClickListener(clickListener);
+        tvRight.setVisibility(View.VISIBLE);
     }
+
 }
