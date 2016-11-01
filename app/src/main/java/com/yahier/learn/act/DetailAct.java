@@ -25,7 +25,7 @@ public class DetailAct extends ThemeAct implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.tvChat:
-                startActivity(new Intent(this, ChatActivity.class).putExtra("userId", "bingo"));
+                startActivity(new Intent(this, ChatActivity.class).putExtra("userId", "bingo1"));
                 break;
         }
     }
