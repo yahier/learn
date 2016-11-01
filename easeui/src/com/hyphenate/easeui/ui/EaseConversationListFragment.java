@@ -27,6 +27,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.easeui.R;
 import com.hyphenate.easeui.widget.EaseConversationList;
+import com.hyphenate.easeui.widget.EaseTitleBar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,6 +49,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     protected FrameLayout errorItemContainer;
 
     protected boolean isConflict;
+
     
     protected EMConversationListener convListener = new EMConversationListener(){
 
@@ -63,6 +65,12 @@ public class EaseConversationListFragment extends EaseBaseFragment{
         return inflater.inflate(R.layout.ease_fragment_conversation_list, container, false);
     }
 
+
+    protected void setTitleBarVisibility(int visibility){
+        EaseTitleBar titleBar = (EaseTitleBar)getView().findViewById(R.id.title_bar);
+        titleBar.setVisibility(visibility);
+
+    }
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         if(savedInstanceState != null && savedInstanceState.getBoolean("isConflict", false))

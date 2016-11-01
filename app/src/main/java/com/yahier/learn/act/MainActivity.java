@@ -23,7 +23,7 @@ import static com.yahier.learn.R.string.password;
 
 public class MainActivity extends FragmentActivity {
     ViewPager viewpager;
-    String[] labels = {"首页", "发现", "信息", "我的"};
+    String[] labels = new String[4];
     TextView tvMiddle;
     TextView tvRight;
 
@@ -32,6 +32,10 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        labels[0] = "首页";
+        labels[1] = "发现";
+        labels[2] = getResources().getString(R.string.message);
+        labels[3] = "我的";
         findViewById(R.id.theme_top_banner_left).setVisibility(View.INVISIBLE);
         tvMiddle = (TextView) findViewById(R.id.theme_top_banner_middle);
         tvMiddle.setText(labels[0]);
@@ -45,6 +49,10 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+
+    void updateUnreadLabel() {
+        LogUtil.logE("main", "updateUnreadLabel");
+    }
 
     void initView() {
         viewpager = (ViewPager) findViewById(R.id.viewpager);
