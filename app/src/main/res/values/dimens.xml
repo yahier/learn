@@ -7,5 +7,6 @@
     <dimen name="font_size_title">18sp</dimen>
     <dimen name="font_size_list">16sp</dimen>
     <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
     <dimen name="font_size_content">14sp</dimen>
 </resources>
