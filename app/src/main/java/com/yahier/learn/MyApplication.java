@@ -7,6 +7,7 @@ import com.hyphenate.EMConnectionListener;
 import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.util.NetUtils;
 import com.yahier.learn.act.MainActivity;
 
@@ -34,6 +35,8 @@ public class MyApplication extends MultiDexApplication {
         //初始化
         EMClient.getInstance().init(this, options);
         EMClient.getInstance().addConnectionListener(new MyConnectionListener());
+        //初始化EaseUI
+        EaseUI.getInstance().init(this, options);
     }
 
     public static MyApplication getInstance() {

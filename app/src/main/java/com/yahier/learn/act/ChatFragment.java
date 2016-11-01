@@ -26,12 +26,14 @@ import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.easeui.widget.chatrow.EaseChatRow;
+import com.hyphenate.easeui.widget.chatrow.EaseChatRowText;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hyphenate.easeui.widget.emojicon.EaseEmojiconMenu;
 import com.hyphenate.util.EasyUtils;
 import com.hyphenate.util.PathUtil;
 import com.yahier.learn.R;
 import com.yahier.learn.util.Constant;
+import com.yahier.learn.util.LogUtil;
 import com.yahier.learn.util.RobotUser;
 
 import java.io.File;
@@ -420,7 +422,9 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 //                }
                 //end of red packet code
             }
-            return 0;
+            int code = message.getType().ordinal();
+            LogUtil.logE("getCustomChatRowType",""+code);
+            return code;
         }
 
         @Override
@@ -443,7 +447,10 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 //                //end of red packet code
 //            }
 
+                //return new EaseChatRowText(getContext(),message,position,adapter);
+
             }
+            Log.e("ChatFragment", "getCustomChatRow return null");
             return null;
         }
 
