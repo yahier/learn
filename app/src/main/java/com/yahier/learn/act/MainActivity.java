@@ -14,10 +14,15 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.yahier.learn.R;
 import com.yahier.learn.adapter.CommonFragmentPagerAdapter;
+import com.yahier.learn.item.PersonBmob;
 import com.yahier.learn.util.LogUtil;
 import com.yahier.learn.util.ToastUtil;
 
 import java.util.ArrayList;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 
 import static com.yahier.learn.R.string.password;
 
@@ -46,9 +51,43 @@ public class MainActivity extends FragmentActivity {
                 loginHuanxin();
             }
         }, 1000);
+        initBmob();
 
     }
 
+    void initBmob() {
+        Bmob.initialize(this, "e36da6917cbee0cb8c767f2ea6e1122e");
+       // testOperate();
+    }
+
+    //测试成功
+    void testOperate() {
+        getWindow().getDecorView().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                final PersonBmob p2 = new PersonBmob();
+                p2.setName("lucky");
+                p2.setAddress("北京海淀");
+                p2.save(MainActivity.this, new SaveListener() {
+
+                    @Override
+                    public void onSuccess() {
+                        ToastUtil.showToast(("添加数据成功，返回objectId为：" + p2.getObjectId()));
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        ToastUtil.showToast(("添加数据失败，：" + s));
+                    }
+
+
+                });
+
+            }
+        }, 2000);
+
+
+    }
 
     void updateUnreadLabel() {
         LogUtil.logE("main", "updateUnreadLabel");
