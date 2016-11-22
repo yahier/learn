@@ -15,6 +15,7 @@ import com.hyphenate.chat.EMClient;
 import com.yahier.learn.R;
 import com.yahier.learn.adapter.CommonFragmentPagerAdapter;
 import com.yahier.learn.item.PersonBmob;
+import com.yahier.learn.util.Http;
 import com.yahier.learn.util.LogUtil;
 import com.yahier.learn.util.ToastUtil;
 
@@ -51,17 +52,13 @@ public class MainActivity extends FragmentActivity {
                 loginHuanxin();
             }
         }, 1000);
-        initBmob();
-
+        //initBmob();
+        //testRequest();
     }
+
 
     void initBmob() {
         Bmob.initialize(this, "e36da6917cbee0cb8c767f2ea6e1122e");
-       // testOperate();
-    }
-
-    //测试成功
-    void testOperate() {
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -85,9 +82,13 @@ public class MainActivity extends FragmentActivity {
 
             }
         }, 2000);
-
-
     }
+
+    //测试访问服务器数据 ok
+    void testRequest() {
+       new Http().getLastZhihuNews();
+    }
+
 
     void updateUnreadLabel() {
         LogUtil.logE("main", "updateUnreadLabel");
