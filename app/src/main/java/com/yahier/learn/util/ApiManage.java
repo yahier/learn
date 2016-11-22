@@ -5,6 +5,7 @@ import android.util.Log;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by Administrator on 2016/11/22.
@@ -35,6 +36,8 @@ public class ApiManage {
                     .baseUrl("http://news-at.zhihu.com")
                     //增加返回值为Oservable<T>的支持
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    //增加返回值为String的支持
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     //client也不是必要的
                     //.client(client)
                     //增加返回值为Gson的支持(以实体类返回)
@@ -45,4 +48,23 @@ public class ApiManage {
 
         return zhihuApi;
     }
+
+
+
+    public Retrofit getRetrofit() {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://news-at.zhihu.com")
+                    //增加返回值为Oservable<T>的支持
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    //client也不是必要的
+                    //.client(client)
+                    //增加返回值为Gson的支持(以实体类返回)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+        return retrofit;
+    }
+
+
+
 }

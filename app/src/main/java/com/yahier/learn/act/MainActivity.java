@@ -86,7 +86,8 @@ public class MainActivity extends FragmentActivity {
 
     //测试访问服务器数据 ok
     void testRequest() {
-       new Http().getLastZhihuNews();
+        //new Http().getLastZhihuNews();
+        //new Http().testRequest2();
     }
 
 
